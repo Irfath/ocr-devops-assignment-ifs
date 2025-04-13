@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ocr-model
+  template:
+    metadata:
+      labels:
+        app: ocr-model
+    spec:
+      containers:
+      - name: ocr-model
+        image: irfathr/ocr-model:latest  # <-- Correct image name here
+        ports:
+        - containerPort: 8080

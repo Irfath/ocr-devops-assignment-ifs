@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: irfathr/api-gateway:latest  # <-- Use the correct image name here
+        ports:
+        - containerPort: 8001
+        env:
+        - name: OCR_MODEL_HOST
+          value: "ocr-model"

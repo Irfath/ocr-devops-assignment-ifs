@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install Poetry
+RUN pip install poetry
+
+# Copy project files
+COPY pyproject.toml poetry.lock* ./
+RUN poetry install --no-root
+
+COPY model.py .
+
+# Install Tesseract OCR
+RUN apt-get update && apt-get install -y tesseract-ocr && apt-get clean
+
+CMD ["poetry", "run", "python", "model.py"]
