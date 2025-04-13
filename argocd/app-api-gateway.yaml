@@ -1,0 +1,22 @@
+# argocd/app-api-gateway.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-gateway
+  namespace: argocd
+spec:
+  project: ocr-project
+  source:
+    repoURL: https://github.com/Irfath/ocr-devops-assignment-ifs.git
+    targetRevision: HEAD
+    path: helm-charts/api-gateway
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

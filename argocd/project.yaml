@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: ocr-project
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/Irfath/ocr-devops-assignment-ifs.git
+  destinations:
+    - namespace: default
+      server: https://kubernetes.default.svc
+
+
