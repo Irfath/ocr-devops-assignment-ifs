@@ -4,6 +4,8 @@ GitHub : github.com/irfath
 
 Date : 2025-April-12
 
+https://github.com/Irfath/ocr-devops-assignment-ifs.git
+
 
 OCR Inference System (DevOps Project)
 
