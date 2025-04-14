@@ -29,7 +29,7 @@ OS :  Ubuntu 24.04.2 LTS
 
 step 1.
 
-run the buld-and-run Docker file
+run the buld-and-run Docker file.
 Tag the image and push the image to docker hub repository. 
 
 If everything are fine ARGOCD will deploy all the required resources.
@@ -38,14 +38,14 @@ If everything are fine ARGOCD will deploy all the required resources.
 
 important : 3 port forwadings have been used in the implementation
 
-Minikube 
+Minikube  : 
 kubectl port-forward service/api-gateway 9000:8001 &
 
-Argo CD 
+Argo CD  : 
 kubectl port-forward svc/argocd-server -n argocd 8082:443 &
 
 
-Monitoring garfanna 
+Monitoring garfanna :
 kubectl port-forward svc/monitoring-grafana -n monitoring 3000:80 &
 
 
